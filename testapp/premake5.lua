@@ -23,6 +23,7 @@ project "TestApp"
 
 	filter "system:windows"
 		systemversion "latest"
+		staticruntime "off"
 
 		files {
 			"platform/windows/src/**.cpp",

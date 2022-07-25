@@ -21,6 +21,7 @@ project "SpiritEngine"
 
 	filter "system:windows"
 		systemversion "latest"
+		staticruntime "off"
 		files {
 			"platform/windows/src/**.cpp",
 			"platform/windows/include/**.hpp"
