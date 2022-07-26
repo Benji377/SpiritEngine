@@ -1,47 +1,34 @@
 #pragma once
-#include "sprtpch.hpp"
-#include <GLFW/glfw3.h>
+
+#include "core/base.hpp"
+#include "events/event.hpp"
 
 namespace Spirit {
-	enum CursorMode {
-		Hidden,
-		Locked,
-		Normal
-	};
-
 	struct WindowProps {
 		std::string Title;
-		uint32_t Width;
-		uint32_t Height;
+		unsigned int Width;
+		unsigned int Height;
 
-		WindowProps(const std::string& title = "Spirit Engine", uint32_t width = 1600, uint32_t height = 900) : Title(title), Width(width), Height(height) { }
+		WindowProps(const std::string& title = "Spirit Engine", unsigned int width = 1280, unsigned int height = 720) : Title(title), Width(width), Height(height) { }
 	};
 
+	// Interface representing a desktop system based Window
 	class Window {
-		int width;
-		int height;
-		const char* title;
-		void* windowPtr;
 		public:
-		Window(WindowProps props, ApplicationCommandLineArgs args);
-		void makeContextCurrent();
+			using EventCallbackFn = std::function<void(Event&)>;
 
-		void pollInput();
+			virtual ~Window() {}
 
-		void swapBuffers();
+			virtual void OnUpdate() = 0;
 
-		void update(float dt);
+			virtual unsigned int GetWidth() const = 0;
+			virtual unsigned int GetHeight() const = 0;
 
-		void setCursorMode(CursorMode cursorMode);
+			// Window attributes
+			virtual void SetEventCallback(const EventCallbackFn& callback) = 0;
+			virtual void SetVSync(bool enabled) = 0;
+			virtual bool IsVSync() const = 0;
 
-		bool shouldClose();
-
-		void setVSync(bool on);
-		
-		static void resizeCallback(GLFWwindow* windowPtr, int newWidth, int newHeight);
-
-		static void cleanup();
-
-		static void free(Window* window);
+			static Window* Create(const WindowProps& props = WindowProps());
 	};
 }

@@ -16,7 +16,8 @@ project "SpiritEngine"
 	}
 
 	includedirs {
-		"include"
+		"include",
+		"platform"
 	}
 
 	filter "system:windows"
@@ -38,7 +39,7 @@ project "SpiritEngine"
 
 		files {
 			"platform/linux/src/**.cpp",
-			"platform/linux/include/**.hpp"
+			"platform/linux/**.hpp"
 		}
 
 		defines {
