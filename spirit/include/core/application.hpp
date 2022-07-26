@@ -4,11 +4,12 @@
 #include "core/timestep.hpp"
 #include "core/window.hpp"
 #include "events/app_event.hpp"
-/* #include "events/application_event.hpp" */
+#include "core/app_spec.hpp"
 
 int main(int argc, char** argv);
 
 namespace Spirit {
+
 	class Application {
 		public:
 			Application(const ApplicationSpecification& specification);

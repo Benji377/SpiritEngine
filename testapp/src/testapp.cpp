@@ -20,7 +20,7 @@ class Testapp : public Spirit::Application {
 Spirit::Application* Spirit::CreateApplication(Spirit::ApplicationCommandLineArgs args) {
 	ApplicationSpecification spec;
 	spec.Name = "TestApp";
-	spec.WorkingDirectory = ".";
+	spec.WorkingDirectory = "testapp";
 	spec.CommandLineArgs = args;
 	return new Testapp(spec);
 }

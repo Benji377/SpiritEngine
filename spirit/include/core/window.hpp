@@ -2,6 +2,7 @@
 
 #include "core/base.hpp"
 #include "events/event.hpp"
+#include "core/app_spec.hpp"
 
 namespace Spirit {
 	struct WindowProps {
@@ -29,6 +30,6 @@ namespace Spirit {
 			virtual void SetVSync(bool enabled) = 0;
 			virtual bool IsVSync() const = 0;
 
-			static Window* Create(const WindowProps& props = WindowProps());
+			static Window* Create(const WindowProps& props = WindowProps(), ApplicationCommandLineArgs args = ApplicationCommandLineArgs());
 	};
 }

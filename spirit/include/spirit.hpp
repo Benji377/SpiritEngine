@@ -1,7 +1,9 @@
 #pragma once
 #include "core/base.hpp"
 #include "core/application.hpp"
+#include "core/app_spec.hpp"
 #include "core/log.hpp"
+#include "renderer/shader.hpp"
 #include "core/assert.hpp"
 #include "core/timestep.hpp"
 #include "core/entrypoint.hpp"

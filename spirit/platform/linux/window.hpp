@@ -2,13 +2,15 @@
 
 #include "core/window.hpp"
 #include "events/app_event.hpp"
+#include "renderer/graphics_context.hpp"
+#include "core/app_spec.hpp"
 
 #include <GLFW/glfw3.h>
 
 namespace Spirit {
 	class LinuxWindow : public Window {
 		public:
-			LinuxWindow(const WindowProps& props);
+			LinuxWindow(const WindowProps& props, ApplicationCommandLineArgs& args);
 			virtual ~LinuxWindow();
 
 			void OnUpdate() override;
@@ -20,10 +22,12 @@ namespace Spirit {
 			inline void SetEventCallback(const EventCallbackFn& callback) override { m_Data.EventCallback = callback; }
 			void SetVSync(bool enabled) override;
 			bool IsVSync() const override;
-			virtual void Init(const WindowProps& props);
+			virtual void Init(const WindowProps& props, ApplicationCommandLineArgs& args);
 			virtual void Shutdown();
+			inline virtual void* GetNativeWindow() const { return m_Window; }
 		private:
 			GLFWwindow* m_Window;
+			GraphicsContext* m_Context;
 
 			struct WindowData {
 				std::string Title;

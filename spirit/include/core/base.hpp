@@ -39,21 +39,6 @@ namespace Spirit {
 	constexpr Ref<T> CreateRef(Args&& ... args) {
 		return std::make_shared<T>(std::forward<Args>(args)...);
 	}
-
-	struct ApplicationCommandLineArgs {
-		int count = 0;
-		char** Args = nullptr;
-
-		const char* operator[](int index) const {
-			return Args[index];
-		}
-	};
-
-	struct ApplicationSpecification {
-		std::string Name = "Spirit Application";
-		std::string WorkingDirectory;
-		ApplicationCommandLineArgs CommandLineArgs;
-	};
 }
 
 #include "core/assert.hpp"

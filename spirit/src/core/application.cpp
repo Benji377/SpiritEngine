@@ -11,6 +11,7 @@ namespace Spirit {
 		// Set working directory here
 		if (!m_Specification.WorkingDirectory.empty())
 			std::filesystem::current_path(m_Specification.WorkingDirectory);
+			SPRT_CORE_INFO("Working Directory: {0}", std::filesystem::current_path());
 
 		/* m_Window = new Window(WindowProps(m_Specification.Name), specification.CommandLineArgs); */
 		m_Window = std::unique_ptr<Window>(Window::Create());
