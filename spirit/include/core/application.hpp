@@ -5,11 +5,13 @@
 #include "core/window.hpp"
 #include "events/app_event.hpp"
 #include "core/app_spec.hpp"
+#include "renderer/shader.hpp"
+#include "renderer/buffer.hpp"
+#include "renderer/vertex_array.hpp"
 
 int main(int argc, char** argv);
 
 namespace Spirit {
-
 	class Application {
 		public:
 			Application(const ApplicationSpecification& specification);
@@ -33,6 +35,11 @@ namespace Spirit {
 			float m_LastFrameTime = 0.0f;
 			static Application* s_Instance;
 			LayerStack m_LayerStack;
+			std::shared_ptr<VertexArray> m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+			std::shared_ptr<Shader> m_Shader;
+
+			std::shared_ptr<Shader> m_BlueShader;
+			std::shared_ptr<VertexArray> m_SquareVA;
 			friend int ::main(int argc, char** argv);
 	};
 	// To be defined in client

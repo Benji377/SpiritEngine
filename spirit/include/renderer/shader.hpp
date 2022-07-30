@@ -1,3 +1,16 @@
 #pragma once
-#include <GL/glew.h>
-GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path);
+
+#include <string>
+
+namespace Spirit {
+	class Shader {
+	public:
+		Shader(const std::string& vertexSrc, const std::string& fragmentSrc);
+		~Shader();
+
+		void bind() const;
+		void unbind() const;
+	private:
+		uint32_t m_RendererID;
+	};
+}
