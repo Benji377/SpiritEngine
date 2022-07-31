@@ -29,6 +29,15 @@ project "SpiritEngine"
 			"platform/windows/include/**.hpp"
 		}
 
+		links {
+			"GLFW",
+			"opengl32.lib"
+		}
+
+		includedirs {
+			"%{wks.location}/vendor"
+		}
+
 		defines {
 			"_GLFW_WIN32",
 			"_CRT_SECURE_NO_WARNINGS"
