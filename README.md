@@ -20,7 +20,7 @@ The premake5 Windows binary is included in `vendor` if you don't have a version 
 - GLFW3
 - SPDlog (included in `vendor`)
 
-On Windows you'll have to manually install any non-included libs in a path the linker can find them and the headers somewhere the compiler can find them. If you're unsure, investigate the $(VC_IncludePath) and $(VC_LibraryPath) variables to see where the heck Windows decides where the files should go. It's important to install libs in the default directory so everyone's linker knows where to find them.
+On Windows you'll have to manually install any non-included libs in a path the linker can find them and the headers somewhere the compiler can find them. If you're unsure, investigate the `VC_IncludePath` and `VC_LibraryPath` variables to see where the heck Windows decides where the files should go. It's important to install libs in the default directory so everyone's linker knows where to find them.
 
 # Using
 ## Entry Point
