@@ -31,7 +31,7 @@ project "TestApp"
 		}
 
 	filter "system:linux"
-		links { "pthread", "fmt", "X11" }
+		links { "pthread", "fmt", "X11", "GLEW", "GL", "GLU", "glut", "glfw"}
 		systemversion "latest"
 
 		files {

@@ -44,7 +44,7 @@ project "SpiritEngine"
 		}
 
 	filter "system:linux"
-		links { "pthread", "glfw" }
+		links { "pthread", "glfw", "GLEW" }
 		systemversion "latest"
 
 		files {
